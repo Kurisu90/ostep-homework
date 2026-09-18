@@ -1,0 +1,37 @@
+# Makefile_zh
+#
+# 注意：原始目錄中並沒有 Makefile（各個 .c 檔案原本就是各自
+# 使用 README.md 中所示的指令個別編譯），這份 Makefile_zh 是
+# 為了方便建置這些中文化版本而額外新增的，並非翻譯自既有檔案。
+
+CC     = gcc
+CFLAGS = -Wall -pthread
+
+SRCS = barrier_zh.c fork-join_zh.c mutex-nostarve_zh.c \
+       reader-writer_zh.c reader-writer-nostarve_zh.c rendezvous_zh.c
+BINS = $(SRCS:_zh.c=_zh)
+
+all: $(BINS)
+
+barrier_zh: barrier_zh.c common_threads_zh.h
+	$(CC) -o $@ barrier_zh.c $(CFLAGS)
+
+fork-join_zh: fork-join_zh.c common_threads_zh.h
+	$(CC) -o $@ fork-join_zh.c $(CFLAGS)
+
+mutex-nostarve_zh: mutex-nostarve_zh.c common_threads_zh.h
+	$(CC) -o $@ mutex-nostarve_zh.c $(CFLAGS)
+
+reader-writer_zh: reader-writer_zh.c common_threads_zh.h
+	$(CC) -o $@ reader-writer_zh.c $(CFLAGS)
+
+reader-writer-nostarve_zh: reader-writer-nostarve_zh.c common_threads_zh.h
+	$(CC) -o $@ reader-writer-nostarve_zh.c $(CFLAGS)
+
+rendezvous_zh: rendezvous_zh.c common_threads_zh.h
+	$(CC) -o $@ rendezvous_zh.c $(CFLAGS)
+
+clean:
+	rm -f $(BINS)
+
+.PHONY: all clean

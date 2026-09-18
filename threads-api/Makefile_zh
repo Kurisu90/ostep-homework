@@ -1,0 +1,23 @@
+
+FLAGS = -Wall -pthread -g
+
+all: main-race_zh main-deadlock_zh main-deadlock-global_zh main-signal_zh main-signal-cv_zh
+
+clean:
+	rm -f main-race_zh main-deadlock_zh main-deadlock-global_zh main-signal_zh main-signal-cv_zh
+
+main-race_zh: main-race_zh.c common_threads_zh.h
+	gcc -o main-race_zh main-race_zh.c $(FLAGS)
+
+main-deadlock_zh: main-deadlock_zh.c common_threads_zh.h
+	gcc -o main-deadlock_zh main-deadlock_zh.c $(FLAGS)
+
+main-deadlock-global_zh: main-deadlock-global_zh.c common_threads_zh.h
+	gcc -o main-deadlock-global_zh main-deadlock-global_zh.c $(FLAGS)
+
+main-signal_zh: main-signal_zh.c common_threads_zh.h
+	gcc -o main-signal_zh main-signal_zh.c $(FLAGS)
+
+main-signal-cv_zh: main-signal-cv_zh.c common_threads_zh.h
+	gcc -o main-signal-cv_zh main-signal-cv_zh.c $(FLAGS)
+

@@ -1,0 +1,5 @@
+
+all: mem_zh
+
+mem_zh: mem_zh.c
+	gcc -o mem_zh mem_zh.c -Wall -O

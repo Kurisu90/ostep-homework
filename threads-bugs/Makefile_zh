@@ -1,0 +1,24 @@
+
+ALL = vector-deadlock_zh vector-global-order_zh vector-try-wait_zh vector-avoid-hold-and-wait_zh vector-nolock_zh
+COMMON = vector-header_zh.h main-common_zh.c main-header_zh.h common_zh.h common_threads_zh.h
+
+all: $(ALL)
+
+clean:
+	rm -f $(ALL) *~
+
+vector-deadlock_zh: vector-deadlock_zh.c $(COMMON)
+	gcc -o vector-deadlock_zh vector-deadlock_zh.c -Wall -pthread -O
+
+vector-global-order_zh: vector-global-order_zh.c $(COMMON)
+	gcc -o vector-global-order_zh vector-global-order_zh.c -Wall -pthread -O
+
+vector-try-wait_zh: vector-try-wait_zh.c $(COMMON)
+	gcc -o vector-try-wait_zh vector-try-wait_zh.c -Wall -pthread -O
+
+vector-avoid-hold-and-wait_zh: vector-avoid-hold-and-wait_zh.c $(COMMON)
+	gcc -o vector-avoid-hold-and-wait_zh vector-avoid-hold-and-wait_zh.c -Wall -pthread -O
+
+vector-nolock_zh: vector-nolock_zh.c $(COMMON)
+	gcc -o vector-nolock_zh vector-nolock_zh.c -Wall -pthread -O
+
